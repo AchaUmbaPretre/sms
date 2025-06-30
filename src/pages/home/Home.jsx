@@ -6,8 +6,7 @@ const Home = () => {
     <>
         <div className="home">
             <div className="home_wrapper">
-                <Sidebar/>
-                <Topbar/>
+                Home
             </div>
         </div>
     </>

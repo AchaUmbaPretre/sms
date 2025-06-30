@@ -1,10 +1,14 @@
-import React from 'react'
+import './topbar.scss'
 
 const Topbar = () => {
   return (
-    <div>
-      Topbar
-    </div>
+    <>
+      <div className="topbar">
+        <div className="topbar_wrapper">
+            TOPBAR
+        </div>
+      </div>
+    </>
   )
 }
 

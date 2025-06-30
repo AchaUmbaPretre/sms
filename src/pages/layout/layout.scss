@@ -1,0 +1,9 @@
+.layout{
+    width: 100%;
+    &__container{
+        background: red;
+        &__outlet{
+            background: yellow;
+        }
+    }
+}
