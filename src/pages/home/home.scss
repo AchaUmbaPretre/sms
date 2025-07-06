@@ -1,0 +1,20 @@
+.home{
+    width: 100%;
+    &__wrapper{
+        &__row{
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            .home_bottom{
+                display: flex;
+                width: 100%;
+                &__left{
+                    flex: 2;
+                }
+                &__right{
+                    flex: 1.2;
+                }
+            }
+        }
+    }
+}

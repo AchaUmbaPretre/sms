@@ -1,9 +1,21 @@
 .layout{
+    position: relative;
     width: 100%;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
     &__container{
-        background: red;
+        position: relative;
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
         &__outlet{
-            background: yellow;
+            position: relative;
+            overflow: hidden;
+            flex: 5;
+            width: 100%;
+            background: #f8f8f8f1;
+            padding: 20px;
         }
     }
 }

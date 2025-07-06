@@ -11,7 +11,6 @@ const Layout = () => {
         <div className="layout__container">
             <Sidebar />
             <div className="layout__container__outlet">
-                Layout
                 <Outlet />
             </div>
         </div>

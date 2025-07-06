@@ -1,0 +1,84 @@
+.sidebar {
+  height: calc(100vh - 57px);
+  position: sticky;
+  top: 57px;
+  background: #fff;
+  border-top: 1px solid #1890ff;
+  padding-top: 0;
+
+  // Bouton toggle placé en absolu dans le coin supérieur droit
+  &__toggle-btn {
+    position: absolute;
+    top: 16px;          // ajuste la hauteur à ton goût
+    right: 0;           // collé au bord droit de la sidebar
+    width: 36px;
+    height: 36px;
+    background: #fff;
+    border-radius: 50% 0 0 50%;  // arrondi à gauche uniquement
+    border: 1px solid #e0e0e0;
+    border-right: none;          // pour fusionner visuellement avec sidebar
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      background-color: #e6f4ff;
+      color: #1890ff;
+      box-shadow: 2px 0 8px rgba(24, 144, 255, 0.3);
+      border-color: #1890ff;
+    }
+
+    svg {
+      font-size: 20px;
+    }
+  }
+
+  .ant-menu {
+    font-size: 15px;
+
+    .icon {
+        font-size: 18px;
+        color: #1890ff;
+        padding: 5px;
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+        transition: all 0.3s;
+
+        &--collapsed {
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+        }
+
+
+    .ant-menu-item,
+    .ant-menu-submenu-title {
+      padding-left: 30px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 12px;
+    }
+
+    .ant-menu-item-selected {
+      background-color: #e6f4ff !important;
+      color: #1890ff !important;
+      font-weight: 500;
+    }
+
+    .ant-menu-item:hover,
+    .ant-menu-submenu-title:hover {
+      color: #1890ff !important;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      flex: 1;
+    }
+  }
+}
