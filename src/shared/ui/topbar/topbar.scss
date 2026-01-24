@@ -1,0 +1,33 @@
+.topbar{
+    width: 100%;
+    background: black;
+    position: sticky;
+    top: 0;
+    left: 0;
+    padding: 20px 40px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 999;
+    border-bottom: 1px solid #cfcfcf;
+    .topbar_wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        .topbar-left{
+
+        }
+        .topbar-right{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            .topbar-icons{
+                .icon{
+                    font-size: 1.1rem;
+                }
+            }
+        }
+    }
+}

@@ -3,24 +3,24 @@
   position: sticky;
   top: 57px;
   background: #fff;
-  border-top: 1px solid #1890ff;
+  border-top: 2px solid #1890ff;
   padding-top: 0;
-
-  // Bouton toggle placé en absolu dans le coin supérieur droit
+  
   &__toggle-btn {
     position: absolute;
-    top: 16px;          // ajuste la hauteur à ton goût
-    right: 0;           // collé au bord droit de la sidebar
+    top: 16px;
+    right: 0;
     width: 36px;
     height: 36px;
     background: #fff;
-    border-radius: 50% 0 0 50%;  // arrondi à gauche uniquement
+    border-radius: 50% 0 0 50%;
     border: 1px solid #e0e0e0;
-    border-right: none;          // pour fusionner visuellement avec sidebar
+    border-right: none;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 999;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 
@@ -32,7 +32,8 @@
     }
 
     svg {
-      font-size: 20px;
+      font-size: 14px;
+      z-index: 999;
     }
   }
 
@@ -40,20 +41,20 @@
     font-size: 15px;
 
     .icon {
-        font-size: 18px;
-        color: #1890ff;
-        padding: 5px;
-        border: 1px solid #e0e0e0;
-        border-radius: 10px;
-        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
-        transition: all 0.3s;
+      font-size: 18px;
+      color: #1890ff;
+      padding: 5px;
+      border: 1px solid #e0e0e0;
+      border-radius: 10px;
+      box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05);
+      transition: all 0.3s;
 
-        &--collapsed {
-            padding: 0;
-            border: none;
-            box-shadow: none;
-        }
-        }
+      &--collapsed {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+      }
+    }
 
 
     .ant-menu-item,

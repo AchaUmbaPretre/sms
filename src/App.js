@@ -1,18 +1,19 @@
 import './App.css';
-import { createBrowserRouter, RouterProvider, Navigate, Outlet } from 'react-router-dom';
-import Home from './pages/home/Home';
-import Layout from './pages/layout/Layout';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import MainLayout from './shared/ui/mainLayout/MainLayout';
+import Dashboard from './features/dashboard/Dashboard';
+
 
 function App() {
 
     const router = createBrowserRouter([
     {
       path: '/',
-      element: <Layout />,
+      element: <MainLayout />,
       children: [
         { 
           path: '/', 
-          element: <Home /> 
+          element: <Dashboard /> 
         }
       ]
     }

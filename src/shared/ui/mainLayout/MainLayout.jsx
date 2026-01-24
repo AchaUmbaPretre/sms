@@ -1,15 +1,16 @@
 import { Outlet } from 'react-router-dom'
-import Topbar from '../../components/topbar/Topbar'
-import Sidebar from '../../components/sidebar/Sidebar'
-import './layout.scss'
 
-const Layout = () => {
+import './mainLayout.scss'
+import Topbar from '../topbar/Topbar'
+import Sidebar from '../sidebar/Sidebar'
+
+const MainLayout = () => {
   return (
     <>
       <div className="layout">
-        <Topbar />
+        <Topbar/>
         <div className="layout__container">
-            <Sidebar />
+            <Sidebar/>
             <div className="layout__container__outlet">
                 <Outlet />
             </div>
@@ -19,4 +20,4 @@ const Layout = () => {
   )
 }
 
-export default Layout
+export default MainLayout

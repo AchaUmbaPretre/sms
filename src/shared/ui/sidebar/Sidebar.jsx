@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Layout, Menu, Button, Tooltip } from 'antd';
+import { useState } from 'react';
+import { Layout, Menu, Button } from 'antd';
 import {
   DashboardOutlined,
   UserOutlined,
@@ -39,13 +39,13 @@ const Sidebar = () => {
         icon={collapsed ? <MenuUnfoldOutlined style={{color:'#1890ff'}} /> : <MenuFoldOutlined style={{color:'#1890ff'}}/>}
         aria-label={collapsed ? "Ouvrir le menu" : "Réduire le menu"}
       />
-
       <Menu
         mode="inline"
         selectedKeys={[location.pathname]}
         defaultOpenKeys={['/']}
         style={{ height: '100%', borderRight: 0, marginTop: 40 }}
       >
+
         <Menu.Item key="/" icon={<DashboardOutlined className={collapsed ? 'icon icon--collapsed' : 'icon'}/>}>
           <NavLink to="/">Dashboard</NavLink>
         </Menu.Item>
@@ -54,6 +54,7 @@ const Sidebar = () => {
           <Menu.Item key="/eleves/list">
             <NavLink to="/eleves/list">Liste des élèves</NavLink>
           </Menu.Item>
+
           <Menu.Item key="/eleves/inscription">
             <NavLink to="/eleves/inscription">Inscription</NavLink>
           </Menu.Item>
@@ -63,9 +64,34 @@ const Sidebar = () => {
           <NavLink to="/presences">Présences</NavLink>
         </Menu.Item>
 
+        <Menu.Item key="/presences" icon={<CalendarOutlined className={collapsed ? 'icon icon--collapsed' : 'icon'} />}>
+          <NavLink to="/presences">Présences</NavLink>
+        </Menu.Item>
+
+        <Menu.Item key="/presences" icon={<CalendarOutlined className={collapsed ? 'icon icon--collapsed' : 'icon'} />}>
+          <NavLink to="/presences">Présences</NavLink>
+        </Menu.Item>
+
+        <Menu.Item key="/presences" icon={<CalendarOutlined className={collapsed ? 'icon icon--collapsed' : 'icon'} />}>
+          <NavLink to="/presences">Présences</NavLink>
+        </Menu.Item>
+
+        <Menu.Item key="/presences" icon={<CalendarOutlined className={collapsed ? 'icon icon--collapsed' : 'icon'} />}>
+          <NavLink to="/presences">Présences</NavLink>
+        </Menu.Item>
+
+        <Menu.Item key="/presences" icon={<CalendarOutlined className={collapsed ? 'icon icon--collapsed' : 'icon'} />}>
+          <NavLink to="/presences">Présences</NavLink>
+        </Menu.Item>
+
+        <Menu.Item key="/presences" icon={<CalendarOutlined className={collapsed ? 'icon icon--collapsed' : 'icon'} />}>
+          <NavLink to="/presences">Présences</NavLink>
+        </Menu.Item>
+
         <Menu.Item key="/parametres" icon={<SettingOutlined className={collapsed ? 'icon icon--collapsed' : 'icon'}/>}>
           <NavLink to="/parametres">Paramètres</NavLink>
         </Menu.Item>
+
       </Menu>
     </Sider>
   );

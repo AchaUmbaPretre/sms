@@ -3,10 +3,10 @@ import './rowGlobal.scss';
 
 const cardsData = [
   { label: 'Élèves', icon: <UserOutlined /> },
-  { label: 'Présents', icon: <UserOutlined /> },
   { label: 'Parents', icon: <UserOutlined /> },
-  { label: 'Enseignants', icon: <UserOutlined /> },
-];
+  { label: 'Présents', icon: <UserOutlined /> },
+  { label: 'Prof', icon: <UserOutlined /> },
+]
 
 const RowGlobal = () => {
   return (
