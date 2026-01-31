@@ -1,12 +1,18 @@
-// shared/ui/Table.jsx
-import { Table as AntTable } from 'antd'
+import { Table as AntTable, Empty } from "antd";
 
 export default function Table({
   columns,
-  data,
+  data = [],
   loading = false,
-  rowKey = 'id',
+  rowKey = "id",
   pagination = true,
+  onChange,
+  scroll,
+  size = "middle",
+  rowSelection,
+  bordered = false,
+  locale,
+  ...rest
 }) {
   return (
     <AntTable
@@ -15,6 +21,19 @@ export default function Table({
       loading={loading}
       rowKey={rowKey}
       pagination={pagination}
+      onChange={onChange}
+      scroll={scroll}
+      size={size}
+      rowSelection={rowSelection}
+      bordered={bordered}
+      locale={
+        locale || {
+          emptyText: (
+            <Empty description="Aucune donnée disponible" />
+          ),
+        }
+      }
+      {...rest}
     />
-  )
+  );
 }

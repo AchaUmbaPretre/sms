@@ -51,8 +51,8 @@ const Sidebar = () => {
         </Menu.Item>
 
         <Menu.SubMenu key="students" icon={<UserOutlined className={collapsed ? 'icon icon--collapsed' : 'icon'} />} title="Élèves">
-          <Menu.Item key="/eleves/list">
-            <NavLink to="/eleves/list">Liste des élèves</NavLink>
+          <Menu.Item key="/list">
+            <NavLink to="/eleves">Liste des élèves</NavLink>
           </Menu.Item>
 
           <Menu.Item key="/eleves/inscription">

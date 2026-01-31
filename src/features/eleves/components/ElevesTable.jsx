@@ -1,6 +1,6 @@
+import Table from "../../../shared/ui/Table";
 import { Card } from "antd";
-import Table from "../../../../shared/ui/table/Table";
-import { useElevesColumn } from "../../hooks/useElevesColumn";
+import { useElevesColumn } from "../hooks/useElevesColumn";
 
 const ElevesTable = ({
   data,
