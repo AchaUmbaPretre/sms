@@ -84,6 +84,25 @@ export function useElevesColumn({
       },
 
       {
+        title: "Date de naissance",
+        dataIndex: "date_naissance",
+        key: "date_naissance",
+        render: (value) => <DateCell date={value} />
+      },
+
+      {
+        title: "Sexe",
+        dataIndex: "sexe",
+        key: "sexe",
+        align: "center",
+        render: (value) => (
+          <Tag color={value === "M" ? "blue" : "pink"}>
+            <Tooltip title="Sexe de l’élève">{value === "M" ? "Masculin" : "Féminin"}</Tooltip>
+          </Tag>
+        ),
+      },
+
+      {
         title: "Adresse",
         dataIndex: "adresse",
         key: "adresse",

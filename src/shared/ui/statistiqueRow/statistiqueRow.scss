@@ -10,18 +10,46 @@
   }
 }
 
+/* =========================
+   STAT CARD
+========================= */
+
 .stat-card {
-  background: #fff;
+  position: relative;
+  background: #ffffff;
   flex: 1 1 calc(25% - 20px);
   padding: 20px;
   border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   min-width: 220px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 
+  /* 🎨 CLIP-PATH DÉCORATIF */
+  &::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: 20%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 180px;
+    background: rgba(24, 144, 255, 0.08);
+    clip-path: circle(50% at 50% 3%);
+    z-index: 0;
+  }
+
   &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+  }
+
+  /* CONTENU AU-DESSUS DU DÉCOR */
+  &__header,
+  &__value,
+  &__desc {
+    position: relative;
+    z-index: 1;
   }
 
   &__header {
@@ -34,10 +62,11 @@
       font-size: 1rem;
       font-weight: 500;
       margin: 0;
+      color: #1f1f1f;
     }
 
     .icon-wrapper {
-      background: rgba(24, 144, 255, 0.1);
+      background: rgba(24, 144, 255, 0.15);
       border-radius: 50%;
       padding: 10px;
       display: flex;
@@ -45,32 +74,8 @@
       justify-content: center;
 
       svg {
-        font-size: 17px;
+        font-size: 18px;
         color: #1890ff;
-      }
-
-      &.present {
-        background: rgba(82, 196, 26, 0.1);
-
-        svg {
-          color: #52c41a;
-        }
-      }
-
-      &.absent {
-        background: rgba(255, 77, 79, 0.1);
-
-        svg {
-          color: #ff4d4f;
-        }
-      }
-
-      &.justified {
-        background: rgba(250, 140, 22, 0.1);
-
-        svg {
-          color: #fa8c16;
-        }
       }
     }
   }
@@ -78,14 +83,59 @@
   &__value {
     font-size: 1.8rem;
     font-weight: 700;
-    margin: 5px 0;
+    margin: 6px 0;
+    color: #000;
   }
 
   &__desc {
-    color: #888;
     font-size: 0.875rem;
+    color: #8c8c8c;
   }
 }
+
+/* =========================
+   VARIANTES PAR STATUT
+========================= */
+
+.stat-card.present::before {
+  background: rgba(82, 196, 26, 0.12);
+}
+
+.stat-card.present .icon-wrapper {
+  background: rgba(82, 196, 26, 0.15);
+
+  svg {
+    color: #52c41a;
+  }
+}
+
+.stat-card.absent::before {
+  background: rgba(255, 77, 79, 0.12);
+}
+
+.stat-card.absent .icon-wrapper {
+  background: rgba(255, 77, 79, 0.15);
+
+  svg {
+    color: #ff4d4f;
+  }
+}
+
+.stat-card.justified::before {
+  background: rgba(250, 140, 22, 0.12);
+}
+
+.stat-card.justified .icon-wrapper {
+  background: rgba(250, 140, 22, 0.15);
+
+  svg {
+    color: #fa8c16;
+  }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media (max-width: 768px) {
   .stat-card {
