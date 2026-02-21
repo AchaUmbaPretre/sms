@@ -1,8 +1,11 @@
 import React from 'react'
+import InscriptionTable from '../../components/InscriptionTable'
 
 const Inscription = () => {
   return (
-    <div>Inscription</div>
+    <div>
+      <InscriptionTable/>
+    </div>
   )
 }
 

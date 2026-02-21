@@ -66,7 +66,7 @@ const Topbar = () => {
           {/* LEFT */}
           <div className="topbar-school__left">
             <img src={logoImage} alt="École" className="school-logo" />
-            <span className="school-name">Institut Lumière</span>
+            <span className="school-name">MBONGUANA</span>
           </div>
 
           {/* RIGHT */}

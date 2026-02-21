@@ -1,11 +1,9 @@
 import { useState } from "react";
-import { Card, Input, Space, Button, Typography } from "antd";
-import { PlusCircleOutlined, TeamOutlined, PrinterOutlined } from "@ant-design/icons";
+import { Card } from "antd";
 import Table from "../../../shared/ui/table/Table";
 import { useElevesColumn } from "../hooks/useElevesColumn";
-
-const { Search } = Input;
-const { Title } = Typography;
+import { CardTitle } from "../../../shared/ui/cardTitle/CardTitle";
+import CardExtraActions from "../../../shared/ui/cardExtraActions/CardExtraActions";
 
 const ElevesTable = ({
   data,
@@ -16,6 +14,7 @@ const ElevesTable = ({
   onDetail,
   onDelete,
   openModal,
+   onSearch,
 }) => {
   const [searchValue, setSearchValue] = useState("");
   const columns = useElevesColumn({
@@ -29,38 +28,19 @@ const ElevesTable = ({
     <Card
         bordered={false}
         title={
-            <Space align="center">
-            <TeamOutlined style={{ fontSize: 24, color: "#1890ff" }} />
-            <Title level={4} style={{ margin: 0 }}>
-                Liste des élèves
-            </Title>
-            </Space>
+        <CardTitle 
+            title="Liste des élèves" 
+            description="Vue synthétique de tous les élèves pour un suivi académique rapide." 
+        />
         }
         extra={
-            <Space wrap>
-                <Search
-                    placeholder="Rechercher un élève"
-                    allowClear
-                    value={searchValue}
-                    onChange={(e) => {
-                    const val = e.target.value;
-                    setSearchValue(val);
-                    onSearch?.(val); // safe call pour server-side search
-                    }}
-                    style={{ width: 250 }}
-                    enterButton
-                />
-
-                <Button
-                    type="primary"
-                    icon={<PlusCircleOutlined />}
-                    onClick={() => openModal?.("Add")}
-                >
-                    Nouveau
-                </Button>
-
-                <Button icon={<PrinterOutlined />}>Imprimer</Button>
-            </Space>
+            <CardExtraActions
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+                onSearch={onSearch}
+                openModal={openModal}
+                data={data}
+            />
         }
         className="card-eleves"
     >

@@ -1,5 +1,4 @@
 import { Outlet } from 'react-router-dom'
-
 import './mainLayout.scss'
 import Topbar from '../topbar/Topbar'
 import Sidebar from '../sidebar/Sidebar'

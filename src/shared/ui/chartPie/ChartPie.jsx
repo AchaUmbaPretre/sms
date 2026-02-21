@@ -55,7 +55,7 @@ const ChartPie = () => {
   };
 
   return (
-    <div style={{ margin: '0 auto', width:'100%', background:'#fff', padding:'10px', borderRadius:'12px', boxShadow: "0 2px 8px rgba(0, 0, 0, 0.05)" }}>
+    <div style={{ margin: '0 auto', width:'100%', background:'#fff', padding:'10px', borderRadius:'12px', boxShadow: "0 2px 8px rgba(0, 0, 0, 0.05)", border: "1px solid #e0e0e0" }}>
       <h3 style={{ textAlign: 'center', marginBottom: '15px', color: '#111827' }}>Répartition des utilisateurs</h3>
       <div style={{width:'290px', margin: '0 auto'}}>
         <Pie data={data} options={options} />

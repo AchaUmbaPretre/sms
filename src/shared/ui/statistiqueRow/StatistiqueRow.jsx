@@ -1,33 +1,33 @@
 import "./statistiqueRow.scss";
-import { UserOutlined } from "@ant-design/icons";
+import { UserOutlined, CheckCircleOutlined, CloseCircleOutlined, FileTextOutlined } from '@ant-design/icons';
 
 const data = [
   {
     label: "Élèves",
     value: 2000,
     description: "Total inscrits",
-    icon: <UserOutlined />,
+    icon: <UserOutlined style={{ color: '#1890ff' }} />,
     className: "",
   },
   {
     label: "Présents",
     value: 1800,
     description: "Présents aujourd’hui",
-    icon: <UserOutlined />,
+    icon: <CheckCircleOutlined style={{ color: '#52c41a' }} />,
     className: "present",
   },
   {
     label: "Absents",
     value: 150,
     description: "Absents aujourd’hui",
-    icon: <UserOutlined />,
+    icon: <CloseCircleOutlined style={{ color: '#f5222d' }} />,
     className: "absent",
   },
   {
     label: "Justifiés",
     value: 50,
     description: "Absences justifiées",
-    icon: <UserOutlined />,
+    icon: <FileTextOutlined style={{ color: '#faad14' }} />,
     className: "justified",
   },
 ];
