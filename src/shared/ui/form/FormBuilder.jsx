@@ -6,31 +6,25 @@ import DateField from "./fields/DateField";
 const fieldComponents = {
   text: TextField,
   password: PasswordField,
-  email: TextField,
   select: SelectField,
   date: DateField,
 };
 
 const FormBuilder = ({ fields, isEdit }) => {
-  return fields?.map((field) => {
+  return fields.map((field) => {
     if (field.hideOnEdit && isEdit) return null;
 
-    const Component = fieldComponents[field?.type];
+    const Component = fieldComponents[field.type];
 
     if (!Component) {
-      console.error(`Field type "${field.type}" not supported`);
+      console.warn(`Unsupported field type: ${field.type}`);
       return null;
     }
 
-
     return (
       <Component
-        key={field?.name}
-        name={field?.name}
-        label={field?.label}
-        required={field?.required}
-        type={field?.validationType}
-        min={field?.min}
+        key={field.name}
+        {...field}
       />
     );
   });
