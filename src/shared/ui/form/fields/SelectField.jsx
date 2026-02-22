@@ -6,6 +6,7 @@ const SelectField = ({
   label,
   required,
   useOptionsHook,
+  options = [],
   optionLabel = "label",
   optionValue = "value",
   mode,
@@ -15,15 +16,17 @@ const SelectField = ({
     ? useOptionsHook()
     : { data: [], isLoading: false };
 
-  const formattedOptions = data.map((item) => ({
-    label: item[optionLabel],
-    value: item[optionValue],
-  }));
+  const finalOptions = options.length > 0
+    ? options
+    : data.map((item) => ({
+        label: item[optionLabel],
+        value: item[optionValue],
+      }));
 
   return (
     <FormField name={name} label={label} required={required} {...rest}>
       <Select
-        options={formattedOptions}
+        options={finalOptions}
         loading={isLoading}
         mode={mode}
         showSearch

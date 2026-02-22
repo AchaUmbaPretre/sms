@@ -58,6 +58,7 @@ const Eleves = () => {
         FormComponent={ElevesForm}
         initialValues={selected}
         isEdit={isEdit}
+        width={900}
         onSubmit={handleSubmit}
         loading={loading}
       />
