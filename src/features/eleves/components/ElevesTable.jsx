@@ -8,7 +8,7 @@ import CardExtraActions from "../../../shared/ui/cardExtraActions/CardExtraActio
 const ElevesTable = ({
   data,
   loading,
-  pagination,
+  pagination, 
   onChange,
   onEdit,
   onDetail,
@@ -46,7 +46,7 @@ const ElevesTable = ({
     >
         <Table
             columns={columns}
-            data={data}
+            data={Array.isArray(data) ? data : []}
             loading={loading}
             rowKey="id_eleve"
             pagination={{

@@ -1,70 +1,68 @@
-import { useState } from 'react';
-import ElevesTable from '../../components/ElevesTable'
-import './eleves.scss'
-import { useEleves } from '../../hooks/useEleves';
+import { useState } from "react";
+import { useEleves } from "../../hooks/useEleves";
+import CrudDrawer from "../../../../shared/ui/crud/CrudDrawer";
+import ElevesTable from "../../components/ElevesTable";
+import ElevesForm from "../elevesForm/ElevesForm";
 
 const Eleves = () => {
-  const [pagination, setPagination] = useState({
-    current: 1,
-    pageSize: 10,
-  });
-  
-  const [search, setSearch] = useState("");
-  
-  const { data, isLoading } = useEleves({
-    search,
-    page: pagination.current,
-    pageSize: pagination.pageSize,
-  });
+  const [open, setOpen] = useState(false);
+  const [isEdit, setIsEdit] = useState(false);
+  const [selected, setSelected] = useState(null);
+  const [loading, setLoading] = useState(false);
 
-    const handleTableChange = (newPagination) => {
-    setPagination({
-      current: newPagination.current,
-      pageSize: newPagination.pageSize,
-    });
-  };
+  const { data, pagination, onChange, refetch } = useEleves();
 
-  const handleSearch = (value) => {
-    setSearch(value);
-    setPagination((prev) => ({ ...prev, current: 1 }));
+  const handleCreate = () => {
+    setIsEdit(false);
+    setSelected(null);
+    setOpen(true);
   };
 
   const handleEdit = (record) => {
-    console.log("Edit:", record);
+    setIsEdit(true);
+    setSelected(record);
+    setOpen(true);
   };
 
-  const handleDetail = (record) => {
-    console.log("Detail:", record);
-  };
+  const handleSubmit = async (values) => {
+    setLoading(true);
 
-  const handleDelete = (record) => {
-    console.log("Delete:", record);
-  };
+    try {
+      if (isEdit) {
+        // await updateEleve(selected.id_eleve, values)
+      } else {
+        // await createEleve(values)
+      }
 
-  const handleOpenModal = () => {
-    console.log("Open modal");
+      setOpen(false);
+      refetch();
+    } finally {
+      setLoading(false);
+    }
   };
-  
-
 
   return (
-    <div>
+    <>
       <ElevesTable
-        data={data?.items || []}
-        loading={isLoading}
-        pagination={{
-          ...pagination,
-          total: data?.total || 0,
-        }}
-        onChange={handleTableChange}
+        data={data}
+        pagination={pagination}
+        onChange={onChange}
         onEdit={handleEdit}
-        onDetail={handleDetail}
-        onDelete={handleDelete}
-        openModal={handleOpenModal}
-        onSearch={handleSearch}
+        openModal={handleCreate}
       />
-    </div>
-  )
-}
 
-export default Eleves
+      <CrudDrawer
+        open={open}
+        onClose={() => setOpen(false)}
+        title="Élève"
+        FormComponent={ElevesForm}
+        initialValues={selected}
+        isEdit={isEdit}
+        onSubmit={handleSubmit}
+        loading={loading}
+      />
+    </>
+  );
+};
+
+export default Eleves;
