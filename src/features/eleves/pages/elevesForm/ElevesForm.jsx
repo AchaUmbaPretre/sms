@@ -30,18 +30,16 @@ const ElevesForm = ({ isEdit = false, onSubmit, initialValues = {} }) => {
 
   return (
     <Form form={form} layout="vertical" initialValues={initialValues} onFinish={handleFinish}>
-      {/* Barre de progression avec icônes */}
       <Steps current={Number(activeTab) - 1} style={{ marginBottom: 20 }}>
         <Step title="Parent" icon={<UserOutlined />} />
         <Step title="Élève" icon={<SolutionOutlined />} />
         <Step title="Scolaire" icon={<BookOutlined />} />
       </Steps>
 
-      {/* Tabs pour chaque section avec icônes */}
       <Tabs activeKey={activeTab} onChange={handleTabChange} type="card" size="large">
         <TabPane
           tab={
-            <span>
+            <span style={{fontSize:'13px'}}>
               <UserOutlined style={{marginRight:5}} />
               Parent
             </span>
@@ -53,7 +51,7 @@ const ElevesForm = ({ isEdit = false, onSubmit, initialValues = {} }) => {
 
         <TabPane
           tab={
-            <span>
+            <span style={{fontSize:'13px'}}>
               <SolutionOutlined style={{marginRight:5}} />
               Élève
             </span>
@@ -65,7 +63,7 @@ const ElevesForm = ({ isEdit = false, onSubmit, initialValues = {} }) => {
 
         <TabPane
           tab={
-            <span>
+            <span style={{fontSize:'13px'}}>
               <BookOutlined style={{marginRight:5}}/>
               Scolaire
             </span>
@@ -76,7 +74,6 @@ const ElevesForm = ({ isEdit = false, onSubmit, initialValues = {} }) => {
         </TabPane>
       </Tabs>
 
-      {/* Bouton Submit */}
       <Form.Item style={{ marginTop: 20 }}>
         <Button type="primary" htmlType="submit" loading={loading}>
           {isEdit ? "Mettre à jour" : "Créer"}
